@@ -1,0 +1,21 @@
+{
+  "name": "RxJSLearn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/PavithiraManoharan/RxJSLearn.git",
+  "author": "Pavithira Manoharan <pavithira.manoharan@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --mode development"
+  },
+  "dependencies": {
+    "rxjs": "^6.4.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.4.3",
+    "webpack": "^4.30.0",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.0"
+  }
+}
