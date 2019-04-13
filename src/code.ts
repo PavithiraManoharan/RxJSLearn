@@ -4,18 +4,29 @@ let observable = Observable.create((observer: any) => {
   try {
   observer.next('Hello World of Observables!');
   observer.next('How are you?');
-  observer.complete();
-  observer.next('This will not send');
+  setInterval(() => {
+    observer.next("I am good")
+  }, 2000);
 } catch(err) {
   observer.error(err);
 }
-}); //accepts a single argument subscriber
+}); //accepts a single argument subscriber function
 
-observable.subscribe
-  ((x: any) => addItem(x),
+let observer1 = observable.subscribe(
+  (x: any) => addItem(x),
   (error: any) => addItem(error),
   () => addItem("Completed")
 );
+
+let observer2 = observable.subscribe( //subscription
+  (x: any) => addItem(x)
+);
+
+observer1.add(observer2);
+
+setTimeout(() => {
+  observer1.unsubscribe();
+}, 6001)
 
 function addItem(val:any) {
   var node = document.createElement("li");
